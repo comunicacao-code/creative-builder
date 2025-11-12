@@ -1,174 +1,256 @@
-# Creative Builder - UTUA
+# Creative Builder - UTUA 🎨
 
-Aplicação para criação e adaptação de criativos usando IA generativa.
+Plataforma web para criação e adaptação em massa de criativos publicitários usando IA generativa. Combina geração de imagens via IA, edição visual com canvas, expansão automática de formatos e geração de variações de cores.
 
-## 🎯 Funcionalidades
+## 🎯 Funcionalidades Implementadas
 
-### ✅ Implementado
-- ✅ Estrutura base do projeto
-- ✅ Zustand store configurado
-- ✅ Tipos TypeScript completos
-- ✅ Componentes shadcn/ui (Button, Card)
-- ✅ Tela de seleção de workflow
-- ✅ Roteamento configurado
+### ✅ Core Features
+- ✅ **Geração de Criativos com IA** - SeeDream (ByteDance) via Edge Function
+- ✅ **Editor Visual Completo** - Canvas Fabric.js v6 com múltiplos artboards
+- ✅ **Upload Direto** - Interface para upload de criativos já prontos
+- ✅ **Upload Múltiplo** - Carregamento em batch de vários criativos
+- ✅ **Outpainting Inteligente** - Expansão 1:1 ↔ 9:16 com Cloudinary Generative Fill
+- ✅ **Generative Remove** - Remoção de objetos indesejados com IA
+- ✅ **Variações de Cores** - Geração automática de 4 paletas (warm, cool, vibrant, muted)
+- ✅ **Sistema de Camadas** - Logo, texto, imagens, e elementos personalizados
+- ✅ **Histórico de Edição** - Undo/Redo completo com stack de estados
+- ✅ **Atalhos de Teclado** - Shortcuts para todas as ferramentas principais
+- ✅ **Export Otimizado** - Múltiplos formatos (PNG, JPG, WebP) com compressão
 
-### 🚧 Em Desenvolvimento
-- 🚧 Geração com SeeDream (ByteDance)
-- 🚧 Replicação de criativos
-- 🚧 Canvas Editor (Fabric.js)
-- 🚧 Generative Fill (Cloudinary)
-- 🚧 Generative Remove (Cloudinary)
-- 🚧 Camadas (Logo, Footer, Aprovação)
-- 🚧 Export em múltiplos formatos
+### ✅ Sistema de Logos
+- ✅ Integração com logos UTUA (branca e colorida) via Cloudinary
+- ✅ Posicionamento flexível (5 posições: cantos + centro)
+- ✅ Controle de tamanho do logo
+- ✅ Drag & drop de assets para o canvas
+
+### ✅ Editor Avançado
+- ✅ Ferramentas: Select, Hand (pan), Zoom, Draw, Rectangle, Circle, Text
+- ✅ Painel de camadas com visibilidade e lock
+- ✅ Painel de propriedades para edição de objetos
+- ✅ Painel de assets com galeria de recursos
+- ✅ Grid de múltiplos artboards (até 12 variações simultâneas)
+- ✅ Nomenclatura automática (BR-001, AR-002, etc)
+
+### ✅ Integrações
+- ✅ **Lovable Cloud** - Backend automático com Supabase
+- ✅ **Cloudinary** - Upload, transformações e IA generativa
+- ✅ **SeeDream API** - Geração de imagens a partir de prompts
+- ✅ **Edge Functions** - Processamento serverless de todas as operações de IA
 
 ## 📦 Stack Tecnológica
 
-- **Frontend**: React 18 + TypeScript + Vite
+### Frontend
+- **React 18** + **TypeScript** + **Vite**
 - **UI**: shadcn/ui + Tailwind CSS
-- **State**: Zustand (com devtools e persist)
-- **Canvas**: Fabric.js (para edição)
+- **State Management**: Zustand (com devtools e persist)
+- **Canvas**: Fabric.js v6 (edição visual)
 - **Upload**: react-dropzone
 - **Icons**: lucide-react
 - **Routing**: react-router-dom
+- **Forms**: react-hook-form + zod
+- **HTTP**: axios
+
+### Backend (Lovable Cloud)
+- **Supabase** - Banco de dados, autenticação, storage
+- **Edge Functions** - Serverless functions para IA
+- **Cloudinary** - CDN e transformações de imagem
 
 ## 🚀 Como Rodar
 
 ### Instalação
 ```bash
 npm install
-```
+Desenvolvimento
 
-### Desenvolvimento
-```bash
 npm run dev
-```
+Build
 
-### Build
-```bash
 npm run build
-```
+Deploy
+O deploy é automático via Lovable - basta clicar em "Publish" no editor.
 
-## 📁 Estrutura de Pastas
-
-```
+📁 Estrutura de Pastas
 src/
 ├── components/
-│   ├── ui/                  # Componentes shadcn/ui
-│   │   ├── button.tsx
-│   │   └── card.tsx
-│   ├── creative/            # Componentes de criação
-│   │   └── CreativeSelector.tsx
-│   ├── editor/              # Componentes do editor (em breve)
-│   └── export/              # Componentes de export (em breve)
+│   ├── ui/                    # Componentes shadcn/ui (30+ componentes)
+│   ├── creative/              # Seleção de workflows
+│   │   ├── CreativeSelector.tsx
+│   │   ├── GeneratePage.tsx
+│   │   ├── ReplicatePage.tsx
+│   │   └── VerticalSelector.tsx
+│   └── editor/                # Sistema completo de edição
+│       ├── EditorPage.tsx             # Página principal do editor
+│       ├── SimpleCanvas.tsx           # Canvas container
+│       ├── SimpleArtboard.tsx         # Artboard individual com Fabric.js
+│       ├── SimpleToolbar.tsx          # Toolbar com ferramentas
+│       ├── SimpleLayersPanel.tsx      # Painel de camadas
+│       ├── AssetsPanel.tsx            # Galeria de assets
+│       ├── PropertiesPanel.tsx        # Propriedades de objetos
+│       ├── ExportDialog.tsx           # Dialog de export
+│       ├── ImportCreativeDialog.tsx   # Import de criativos
+│       ├── GenerativeFillPopover.tsx  # Expansão de formatos
+│       └── RemoveOverlay.tsx          # Ferramenta de remoção
+├── pages/
+│   ├── ExportPage.tsx         # Página de export final
+│   └── UploadEditorPage.tsx   # Upload direto de criativos
 ├── stores/
-│   └── creative-store.ts    # Zustand store principal
+│   └── creative-store.ts      # Zustand store global
 ├── lib/
-│   ├── utils.ts             # Helpers gerais
-│   ├── cloudinary.ts        # (a criar) Integração Cloudinary
-│   └── seedream.ts          # (a criar) Integração SeeDream
+│   ├── utils.ts               # Helpers gerais + cn()
+│   ├── cloudinary.ts          # Upload para Cloudinary
+│   ├── seedream.ts            # Geração com SeeDream
+│   ├── ai-sdk.ts              # Interface unificada de IA
+│   └── utils/
+│       ├── artboard-layout.ts       # Layout de múltiplos artboards
+│       ├── canvas-export.ts         # Export do canvas Fabric.js
+│       ├── image-cache.ts           # Cache de imagens
+│       ├── image-compression.ts     # Compressão otimizada
+│       └── nomenclature.ts          # Naming automático
 ├── types/
-│   └── index.ts             # Tipos TypeScript
-└── hooks/                   # Hooks customizados (a criar)
-```
+│   └── index.ts               # Tipos TypeScript completos
+├── hooks/
+│   ├── use-editor-history.tsx # Sistema de Undo/Redo
+│   ├── use-keyboard-shortcuts.tsx # Atalhos de teclado
+│   └── use-toast.ts           # Toast notifications
+└── integrations/
+    └── supabase/              # Integração Lovable Cloud
+        ├── client.ts          # Cliente Supabase
+        └── types.ts           # Tipos auto-gerados
 
-## 🎨 Fluxos de Trabalho
+supabase/
+├── functions/                 # Edge Functions
+│   ├── cloudinary-upload/
+│   ├── cloudinary-generative-fill/
+│   ├── cloudinary-generative-remove/
+│   ├── cloudinary-create-variation/
+│   ├── cloudinary-add-logo/
+│   ├── generate-with-seedream/
+│   ├── seedream-generate/
+│   ├── generate-color-variations/
+│   └── optimize-prompt/
+└── config.toml               # Configuração Supabase
+🎨 Fluxos de Trabalho
+1. Gerar Novo Criativo
+Escolha "Gerar Novo" na home
+Preencha: prompt, país (BR/AR/MX/CO), formato (1:1 ou 9:16)
+IA gera imagem base via SeeDream
+Editor abre com a imagem no artboard
+Adicione logos, textos, elementos visuais
+Use "Fill 1:1" ou "Fill 9:16" para expandir formatos
+Clique "Gerar Variações de Cores" para 4 paletas
+Export final em PNG/JPG/WebP
+2. Upload Direto
+Escolha "Upload Direto" na home
+Arraste múltiplos criativos (ou selecione arquivos)
+Preencha: Creative ID, país, formato
+Upload automático para Cloudinary
+Editor abre com todos os criativos carregados
+Edite, expanda formatos, gere variações
+Export em batch
+3. Replicar Criativo (Em Desenvolvimento)
+Escolha "Replicar" na home
+Upload da referência
+IA adapta para novo contexto/país
+Editor para refinamentos
+Export final
+🛠️ Ferramentas do Editor
+Toolbar Principal
+Select (V) - Selecionar e mover objetos
+Hand (H) - Pan/arrastar o canvas
+Draw (D) - Desenho livre
+Rectangle (R) - Criar retângulos
+Circle (C) - Criar círculos
+Text (T) - Adicionar textos
+Zoom In/Out (+/-) - Controle de zoom
+Undo/Redo (Ctrl+Z/Ctrl+Shift+Z)
+Painéis Laterais
+Layers (L) - Gerenciar camadas e visibilidade
+Assets (A) - Galeria de recursos (logos, imagens)
+Properties (P) - Editar propriedades de objetos selecionados
+Menu Arquivo
+Importar Criativo (Ctrl+I) - Importar novos criativos
+Salvar (Ctrl+S) - Salvar e ir para export
+Exportar (Ctrl+E) - Dialog de export
+Generative AI
+Fill 1:1 - Expandir para formato quadrado
+Fill 9:16 - Expandir para formato vertical (stories)
+Remove - Remover objetos com IA
+Variações de Cores - Gerar 4 paletas automaticamente
+⌨️ Atalhos de Teclado
+Atalho	Ação
+V	Ferramenta Select
+H	Ferramenta Hand (pan)
+D	Ferramenta Draw
+R	Ferramenta Rectangle
+C	Ferramenta Circle
+T	Ferramenta Text
+L	Toggle painel de Layers
+A	Toggle painel de Assets
+P	Toggle painel de Properties
+Ctrl + Z	Undo
+Ctrl + Shift + Z	Redo
+Ctrl + S	Salvar
+Ctrl + E	Exportar
+Ctrl + I	Importar criativo
++	Zoom In
+-	Zoom Out
+0	Reset Zoom
+Delete	Deletar objeto selecionado
+🎨 Sistema de Artboards
+O editor suporta múltiplos artboards organizados em grid:
 
-### 1. Gerar Novo Criativo
-1. Usuário escolhe "Gerar Novo"
-2. Preenche prompt, país, formato
-3. SeeDream gera imagem base
-4. Cloudinary expande para formatos (1:1 e 9:16)
-5. Editor canvas para refinamentos
-6. Adiciona logo, footer, marca de aprovação
-7. Export final
+Layout responsivo: 2, 3 ou 4 colunas dependendo do número
+Nomenclatura automática: BR-001, BR-002, etc
+Sincronização de ferramentas entre artboards
+Export individual ou em batch
+🌈 Variações de Cores
+Gera automaticamente 4 paletas otimizadas:
 
-### 2. Replicar Criativo
-1. Usuário escolhe "Replicar"
-2. Faz upload da referência
-3. Define país original e destino
-4. Fornece contexto de adaptação
-5. IA adapta ao novo contexto
-6. Cloudinary expande para formatos
-7. Editor canvas para ajustes
-8. Export final
+Warm - Tons quentes (vermelho, laranja, amarelo)
+Cool - Tons frios (azul, verde, roxo)
+Vibrant - Cores saturadas e vibrantes
+Muted - Cores pastéis e suaves
+Cada variação mantém logos e textos intactos.
 
-## 🔧 Próximos Componentes a Criar
+🔧 Edge Functions
+Geração de Imagens
+generate-with-seedream - Gera imagem via SeeDream + upload Cloudinary
+seedream-generate - Interface direta com SeeDream API
+optimize-prompt - Otimiza prompts antes da geração
+Transformações Cloudinary
+cloudinary-upload - Upload seguro com assinatura
+cloudinary-generative-fill - Expansão de formatos com IA
+cloudinary-generative-remove - Remoção de objetos com IA
+cloudinary-create-variation - Cria nova asset após transformação
+cloudinary-add-logo - Adiciona overlay de logo UTUA
+Processamento Avançado
+generate-color-variations - Gera 4 variações de cores de uma imagem
+📊 Tipos TypeScript
+Todos os tipos estão em src/types/index.ts:
 
-### Componentes shadcn/ui necessários:
-- [ ] Input
-- [ ] Label
-- [ ] Select
-- [ ] Textarea
-- [ ] Tabs
-- [ ] Dialog
-- [ ] Dropdown Menu
-- [ ] Slider
-- [ ] Toggle
-- [ ] Toggle Group
-- [ ] Tooltip
-- [ ] Toast
-- [ ] Separator
-- [ ] Scroll Area
-- [ ] Accordion
-- [ ] Radio Group
-- [ ] Badge
-- [ ] Progress
+Creative - Criativo completo com metadados
+CreativeVariation - Variações de formato/cores
+EditorLayer - Camadas do editor
+GenerationParams - Parâmetros de geração
+CloudinaryTransformation - Transformações Cloudinary
+ExportOptions - Opções de export
+🎯 Próximas Features
+ Sistema de templates pré-configurados
+ Histórico de criativos com galeria na home
+ Navegação lateral para alternar entre múltiplos criativos
+ Batch processing para aplicar fill/cores em todos os criativos
+ Duplicação rápida de criativos
+ Edição de metadados (país, ID, formato) pós-criação
+ Preview antes de aplicar outpainting
+ Sistema de autenticação e usuários
+ Colaboração em tempo real
+📖 Documentação Útil
+shadcn/ui - Componentes UI
+Zustand - State management
+Fabric.js v6 - Canvas editor
+Cloudinary AI - Transformações IA
+Lovable Docs - Plataforma Lovable
+🏢 Desenvolvido para UTUA
+Sistema de criação em massa de criativos publicitários otimizado para operação de marketing digital.
 
-### Páginas principais:
-- [ ] GeneratePage.tsx - Form de geração com SeeDream
-- [ ] ReplicatePage.tsx - Upload e adaptação
-- [ ] EditorPage.tsx - Canvas editor principal
-- [ ] ExportPage.tsx - Preview e download
-
-### Integrações:
-- [ ] lib/cloudinary.ts - API Cloudinary
-- [ ] lib/seedream.ts - API SeeDream
-- [ ] Supabase Edge Functions
-
-## 📝 Notas Importantes
-
-### Para usar no Lovable:
-1. ✅ Todas as bibliotecas já estão no package.json
-2. ✅ Estrutura de pastas padronizada
-3. ✅ Tipos TypeScript completos
-4. ✅ Store Zustand configurado
-5. ✅ shadcn/ui configurado corretamente
-
-### Quando subir para o Lovable:
-- **NÃO deixe ele recriar componentes shadcn** - já estão criados
-- **USE o store Zustand** - não deixe criar Context API
-- **REFERENCIE os tipos** - estão em src/types/index.ts
-- **MANTENHA a estrutura de pastas** - já está organizada
-
-## 🤖 Sistema de Agentes (BMAD)
-
-A aplicação usa uma arquitetura modular de agentes especializados:
-
-- **Generation Agent**: Gera imagens com SeeDream
-- **Expansion Agent**: Expande com Cloudinary Fill
-- **Removal Agent**: Remove objetos com Cloudinary
-- **Layout Agent**: Adiciona logos, footers, etc
-- **Localization Agent**: Adapta contexto por país
-
-Cada agente é independente e pode ser orquestrado em diferentes sequências.
-
-## 🔐 Variáveis de Ambiente
-
-Criar arquivo `.env`:
-```
-VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
-VITE_CLOUDINARY_API_KEY=your_api_key
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_anon_key
-```
-
-## 📖 Documentação
-
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Zustand](https://zustand-demo.pmnd.rs/)
-- [Fabric.js](http://fabricjs.com/)
-- [Cloudinary AI](https://cloudinary.com/documentation/ai_in_action)
-
----
-
-**Desenvolvido para UTUA**
+Objetivo: Reduzir tempo de produção de horas para minutos, permitindo testes rápidos e adaptação ágil de campanhas para múltiplos formatos e mercados.
