@@ -55,91 +55,7 @@ Plataforma web para criação e adaptação em massa de criativos publicitários
 - **Edge Functions** - Serverless functions para IA
 - **Cloudinary** - CDN e transformações de imagem
 
-
-🎨 Fluxos de Trabalho
-1. Gerar Novo Criativo
-Escolha "Gerar Novo" na home
-Preencha: prompt, país (BR/AR/MX/CO), formato (1:1 ou 9:16)
-IA gera imagem base via SeeDream
-Editor abre com a imagem no artboard
-Adicione logos, textos, elementos visuais
-Use "Fill 1:1" ou "Fill 9:16" para expandir formatos
-Clique "Gerar Variações de Cores" para 4 paletas
-Export final em PNG/JPG/WebP
-2. Upload Direto
-Escolha "Upload Direto" na home
-Arraste múltiplos criativos (ou selecione arquivos)
-Preencha: Creative ID, país, formato
-Upload automático para Cloudinary
-Editor abre com todos os criativos carregados
-Edite, expanda formatos, gere variações
-Export em batch
-3. Replicar Criativo (Em Desenvolvimento)
-Escolha "Replicar" na home
-Upload da referência
-IA adapta para novo contexto/país
-Editor para refinamentos
-Export final
-🛠️ Ferramentas do Editor
-Toolbar Principal
-Select (V) - Selecionar e mover objetos
-Hand (H) - Pan/arrastar o canvas
-Draw (D) - Desenho livre
-Rectangle (R) - Criar retângulos
-Circle (C) - Criar círculos
-Text (T) - Adicionar textos
-Zoom In/Out (+/-) - Controle de zoom
-Undo/Redo (Ctrl+Z/Ctrl+Shift+Z)
-Painéis Laterais
-Layers (L) - Gerenciar camadas e visibilidade
-Assets (A) - Galeria de recursos (logos, imagens)
-Properties (P) - Editar propriedades de objetos selecionados
-Menu Arquivo
-Importar Criativo (Ctrl+I) - Importar novos criativos
-Salvar (Ctrl+S) - Salvar e ir para export
-Exportar (Ctrl+E) - Dialog de export
-Generative AI
-Fill 1:1 - Expandir para formato quadrado
-Fill 9:16 - Expandir para formato vertical (stories)
-Remove - Remover objetos com IA
-Variações de Cores - Gerar 4 paletas automaticamente
-⌨️ Atalhos de Teclado
-Atalho	Ação
-V	Ferramenta Select
-H	Ferramenta Hand (pan)
-D	Ferramenta Draw
-R	Ferramenta Rectangle
-C	Ferramenta Circle
-T	Ferramenta Text
-L	Toggle painel de Layers
-A	Toggle painel de Assets
-P	Toggle painel de Properties
-Ctrl + Z	Undo
-Ctrl + Shift + Z	Redo
-Ctrl + S	Salvar
-Ctrl + E	Exportar
-Ctrl + I	Importar criativo
-+	Zoom In
--	Zoom Out
-0	Reset Zoom
-Delete	Deletar objeto selecionado
-🎨 Sistema de Artboards
-O editor suporta múltiplos artboards organizados em grid:
-
-Layout responsivo: 2, 3 ou 4 colunas dependendo do número
-Nomenclatura automática: BR-001, BR-002, etc
-Sincronização de ferramentas entre artboards
-Export individual ou em batch
-Variações de Cores
-Gera automaticamente 4 paletas otimizadas:
-
-Warm - Tons quentes (vermelho, laranja, amarelo)
-Cool - Tons frios (azul, verde, roxo)
-Vibrant - Cores saturadas e vibrantes
-Muted - Cores pastéis e suaves
-Cada variação mantém logos e textos intactos.
-
-🔧 Edge Functions
+### 🔧 Edge Functions
 Geração de Imagens
 generate-with-seedream - Gera imagem via SeeDream + upload Cloudinary
 seedream-generate - Interface direta com SeeDream API
@@ -152,17 +68,8 @@ cloudinary-create-variation - Cria nova asset após transformação
 cloudinary-add-logo - Adiciona overlay de logo UTUA
 Processamento Avançado
 generate-color-variations - Gera 4 variações de cores de uma imagem
-📊 Tipos TypeScript
-Todos os tipos estão em src/types/index.ts:
 
-Creative - Criativo completo com metadados
-CreativeVariation - Variações de formato/cores
-EditorLayer - Camadas do editor
-GenerationParams - Parâmetros de geração
-CloudinaryTransformation - Transformações Cloudinary
-ExportOptions - Opções de export
-
-🎯 Próximas Features
+### 🎯 Próximas Features
  Sistema de templates pré-configurados
  Histórico de criativos com galeria na home
  Navegação lateral para alternar entre múltiplos criativos
@@ -173,14 +80,14 @@ ExportOptions - Opções de export
  Sistema de autenticação e usuários
  Colaboração em tempo real
  
-📖 Documentação Útil
+### 📖 Documentação Útil
 shadcn/ui - Componentes UI
 Zustand - State management
 Fabric.js v6 - Canvas editor
 Cloudinary AI - Transformações IA
 Lovable Docs - Plataforma Lovable
 
-🏢 Desenvolvido para UTUA
+### 🏢 Desenvolvido para UTUA
 Sistema de criação em massa de criativos publicitários otimizado para operação de design
 
 Objetivo: Reduzir tempo de produção de horas para minutos, permitindo testes rápidos e adaptação ágil de campanhas para múltiplos formatos e mercados
