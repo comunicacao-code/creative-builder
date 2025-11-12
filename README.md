@@ -55,20 +55,6 @@ Plataforma web para criação e adaptação em massa de criativos publicitários
 - **Edge Functions** - Serverless functions para IA
 - **Cloudinary** - CDN e transformações de imagem
 
-## 🚀 Como Rodar
-
-### Instalação
-```bash
-npm install
-Desenvolvimento
-
-npm run dev
-Build
-
-npm run build
-Deploy
-O deploy é automático via Lovable - basta clicar em "Publish" no editor.
-
 📁 Estrutura de Pastas
 src/
 ├── components/
@@ -129,6 +115,7 @@ supabase/
 │   ├── generate-color-variations/
 │   └── optimize-prompt/
 └── config.toml               # Configuração Supabase
+
 🎨 Fluxos de Trabalho
 1. Gerar Novo Criativo
 Escolha "Gerar Novo" na home
@@ -203,7 +190,7 @@ Layout responsivo: 2, 3 ou 4 colunas dependendo do número
 Nomenclatura automática: BR-001, BR-002, etc
 Sincronização de ferramentas entre artboards
 Export individual ou em batch
-🌈 Variações de Cores
+Variações de Cores
 Gera automaticamente 4 paletas otimizadas:
 
 Warm - Tons quentes (vermelho, laranja, amarelo)
@@ -234,6 +221,7 @@ EditorLayer - Camadas do editor
 GenerationParams - Parâmetros de geração
 CloudinaryTransformation - Transformações Cloudinary
 ExportOptions - Opções de export
+
 🎯 Próximas Features
  Sistema de templates pré-configurados
  Histórico de criativos com galeria na home
@@ -244,13 +232,15 @@ ExportOptions - Opções de export
  Preview antes de aplicar outpainting
  Sistema de autenticação e usuários
  Colaboração em tempo real
+ 
 📖 Documentação Útil
 shadcn/ui - Componentes UI
 Zustand - State management
 Fabric.js v6 - Canvas editor
 Cloudinary AI - Transformações IA
 Lovable Docs - Plataforma Lovable
-🏢 Desenvolvido para UTUA
-Sistema de criação em massa de criativos publicitários otimizado para operação de marketing digital.
 
-Objetivo: Reduzir tempo de produção de horas para minutos, permitindo testes rápidos e adaptação ágil de campanhas para múltiplos formatos e mercados.
+🏢 Desenvolvido para UTUA
+Sistema de criação em massa de criativos publicitários otimizado para operação de design
+
+Objetivo: Reduzir tempo de produção de horas para minutos, permitindo testes rápidos e adaptação ágil de campanhas para múltiplos formatos e mercados
