@@ -38,8 +38,10 @@ Depois que o Docker estiver instalado:
 ```bash
 # Certifique-se de estar na pasta do projeto (onde está o docker-compose.yml)
 # Depois, simplesmente digite:
-docker-compose up
+docker compose up
 ```
+
+⚠️ **IMPORTANTE**: Use `docker compose` (com espaço), não `docker-compose` (com hífen)!
 
 O que vai acontecer:
 - Docker vai baixar a imagem do Node.js (só na primeira vez)
@@ -79,7 +81,7 @@ Não precisa fazer nada mais - o hot-reload funciona automaticamente!
 Quando terminar de trabalhar:
 
 1. **No terminal onde o Docker está rodando**, pressione: `Ctrl + C`
-2. Ou em outro terminal, digite: `docker-compose down`
+2. Ou em outro terminal, digite: `docker compose down`
 
 ---
 
@@ -101,7 +103,11 @@ Quando terminar de trabalhar:
 
 ### "npm ERR! code EACCES"
 - **Problema**: Permissões no Docker
-- **Solução**: Execute `docker-compose down` e depois `docker-compose up` novamente
+- **Solução**: Execute `docker compose down` e depois `docker compose up` novamente
+
+### "unknown docker command: compose updocker-compose"
+- **Problema**: Você usou o comando errado ou houve erro de digitação
+- **Solução**: Use `docker compose up` (com espaço, não hífen)
 
 ### "cd: no such file or directory: /workspace"
 - **Problema**: Você tentou entrar em um caminho que não existe no seu sistema
@@ -116,25 +122,27 @@ Quando terminar de trabalhar:
 
 ## 📝 Comandos Úteis (Copiar e Colar)
 
+⚠️ **Use `docker compose` (com espaço), não `docker-compose` (com hífen)!**
+
 ```bash
 # Iniciar a aplicação
-docker-compose up
+docker compose up
 
 # Iniciar em background (sem ocupar o terminal)
-docker-compose up -d
+docker compose up -d
 
 # Ver o que está rodando
-docker-compose ps
+docker compose ps
 
 # Ver os logs
-docker-compose logs -f
+docker compose logs -f
 
 # Parar tudo
-docker-compose down
+docker compose down
 
 # Rebuild (se mudou dependências)
-docker-compose build
-docker-compose up
+docker compose build
+docker compose up
 ```
 
 ---
@@ -144,7 +152,7 @@ docker-compose up
 - [ ] Docker Desktop instalado
 - [ ] Docker Desktop rodando (ícone na barra de tarefas)
 - [ ] Terminal aberto na pasta do projeto
-- [ ] Comando `docker-compose up` executado
+- [ ] Comando `docker compose up` executado
 - [ ] Navegador aberto em http://localhost:5173
 - [ ] Aplicação funcionando!
 
@@ -154,7 +162,7 @@ docker-compose up
 
 1. **Instale** Docker Desktop (uma vez só)
 2. **Abra** o terminal na pasta do projeto
-3. **Digite**: `docker-compose up`
+3. **Digite**: `docker compose up`
 4. **Aguarde** carregar
 5. **Abra** http://localhost:5173 no navegador
 6. **Edite** os arquivos no Cursor
