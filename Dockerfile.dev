@@ -1,19 +1,19 @@
-# Development Dockerfile with hot-reload
+# Dockerfile para desenvolvimento com hot-reload
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files
+# Copiar apenas os arquivos de dependências primeiro (cache layer)
 COPY package.json package-lock.json* ./
 
-# Install dependencies
+# Instalar dependências
 RUN npm ci
 
-# Copy source code
+# Copiar o resto do código
 COPY . .
 
-# Expose Vite dev server port
+# Expor a porta do Vite
 EXPOSE 5173
 
-# Start development server
+# Comando padrão: iniciar o servidor de desenvolvimento
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
