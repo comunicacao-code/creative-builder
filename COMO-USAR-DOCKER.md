@@ -19,15 +19,25 @@
 
 ### Passo 2: Usar o Docker no seu projeto
 
-Depois que o Docker estiver instalado, é só rodar estes comandos no terminal:
+Depois que o Docker estiver instalado:
+
+#### ⚠️ IMPORTANTE: Abra o terminal na pasta do projeto
+
+**Como saber se está na pasta certa?**
+- No terminal, digite: `ls` (ou `dir` no Windows)
+- Você deve ver arquivos como: `package.json`, `docker-compose.yml`, `src/`
+- Se não ver esses arquivos, navegue até a pasta do projeto
+
+**Como navegar até a pasta do projeto:**
+- **Windows**: `cd C:\caminho\para\seu\projeto` (ou arraste a pasta para o terminal)
+- **Mac/Linux**: `cd ~/caminho/para/seu/projeto`
+- **No Cursor**: Clique com botão direito na pasta do projeto → "Open in Terminal"
 
 #### Primeira vez (pode demorar 2-5 minutos):
 
 ```bash
-# Entre na pasta do projeto
-cd /workspace
-
-# Inicie o Docker
+# Certifique-se de estar na pasta do projeto (onde está o docker-compose.yml)
+# Depois, simplesmente digite:
 docker-compose up
 ```
 
@@ -92,6 +102,15 @@ Quando terminar de trabalhar:
 ### "npm ERR! code EACCES"
 - **Problema**: Permissões no Docker
 - **Solução**: Execute `docker-compose down` e depois `docker-compose up` novamente
+
+### "cd: no such file or directory: /workspace"
+- **Problema**: Você tentou entrar em um caminho que não existe no seu sistema
+- **Solução**: 
+  - **Não precisa fazer `cd /workspace`!** 
+  - Abra o terminal diretamente na pasta do projeto
+  - **No Cursor**: Clique com botão direito na pasta do projeto → "Open in Terminal"
+  - Ou navegue manualmente: `cd` + caminho da pasta do projeto
+  - Para verificar se está no lugar certo: `ls` (deve mostrar `package.json` e `docker-compose.yml`)
 
 ---
 
