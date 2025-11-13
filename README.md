@@ -32,59 +32,38 @@ Plataforma web para criação e adaptação em massa de criativos publicitários
 - ✅ Nomenclatura automática (BR-001, AR-002, etc)
 
 ### ✅ Integrações
-- ✅ **Lovable Cloud** - Backend automático com Supabase
 - ✅ **Cloudinary** - Upload, transformações e IA generativa
 - ✅ **SeeDream API** - Geração de imagens a partir de prompts
-- ✅ **Edge Functions** - Processamento serverless de todas as operações de IA
+- ✅ **Backend** - APIs e processamento serverless para operações de IA
 
-## 🐳 Hospedagem com Docker
+## 🚀 Como Começar
 
-A aplicação pode ser executada usando Docker para desenvolvimento ou produção.
-
-### Desenvolvimento (com hot-reload)
-
-Para desenvolvimento com hot-reload automático enquanto você faz ajustes:
+### Opção 1: Usando Docker (Recomendado - Não precisa instalar Node.js)
 
 ```bash
-# Usando docker-compose (recomendado)
-docker-compose --profile dev up
+# Iniciar a aplicação com hot-reload
+docker compose up
 
-# Ou usando Docker diretamente
-docker build -f Dockerfile.dev -t creative-builder-dev .
-docker run -p 5173:5173 -v $(pwd):/app -v /app/node_modules creative-builder-dev
+# A aplicação estará em: http://localhost:5173
 ```
 
-A aplicação estará disponível em `http://localhost:5173` com hot-reload ativo.
+**Vantagens:**
+- ✅ Não precisa instalar Node.js localmente
+- ✅ Hot-reload automático
+- ✅ Ambiente isolado e consistente
 
-### Produção
+Veja o guia completo em [COMO-USAR-DOCKER.md](./COMO-USAR-DOCKER.md)
 
-Para executar a versão de produção otimizada:
-
-```bash
-# Usando docker-compose
-docker-compose --profile prod up
-
-# Ou usando Docker diretamente
-docker build -t creative-builder .
-docker run -p 80:80 creative-builder
-```
-
-A aplicação estará disponível em `http://localhost`.
-
-### Comandos Úteis
+### Opção 2: Desenvolvimento Local (com Node.js)
 
 ```bash
-# Parar os containers
-docker-compose down
+# Instalar dependências
+npm install
 
-# Rebuild das imagens
-docker-compose build
+# Iniciar servidor de desenvolvimento
+npm run dev
 
-# Ver logs
-docker-compose logs -f
-
-# Executar em background
-docker-compose up -d
+# A aplicação estará em: http://localhost:5173
 ```
 
 ## 📦 Stack Tecnológica
@@ -100,9 +79,9 @@ docker-compose up -d
 - **Forms**: react-hook-form + zod
 - **HTTP**: axios
 
-### Backend (Lovable Cloud)
-- **Supabase** - Banco de dados, autenticação, storage
-- **Edge Functions** - Serverless functions para IA
+### Backend
+- **APIs** - Integração com serviços externos
+- **Serverless Functions** - Processamento de operações de IA
 - **Cloudinary** - CDN e transformações de imagem
 
 ### 🔧 Edge Functions
@@ -131,11 +110,10 @@ generate-color-variations - Gera 4 variações de cores de uma imagem
  Colaboração em tempo real
  
 ### 📖 Documentação Útil
-shadcn/ui - Componentes UI
-Zustand - State management
-Fabric.js v6 - Canvas editor
-Cloudinary AI - Transformações IA
-Lovable Docs - Plataforma Lovable
+- [shadcn/ui](https://ui.shadcn.com/) - Componentes UI
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [Fabric.js v6](https://github.com/fabricjs/fabric.js) - Canvas editor
+- [Cloudinary AI](https://cloudinary.com/documentation/ai_content_analysis_and_generation_addon) - Transformações IA
 
 ### 🏢 Desenvolvido para UTUA
 Sistema de criação em massa de criativos publicitários otimizado para operação de design
