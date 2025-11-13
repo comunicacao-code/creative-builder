@@ -37,6 +37,56 @@ Plataforma web para criação e adaptação em massa de criativos publicitários
 - ✅ **SeeDream API** - Geração de imagens a partir de prompts
 - ✅ **Edge Functions** - Processamento serverless de todas as operações de IA
 
+## 🐳 Hospedagem com Docker
+
+A aplicação pode ser executada usando Docker para desenvolvimento ou produção.
+
+### Desenvolvimento (com hot-reload)
+
+Para desenvolvimento com hot-reload automático enquanto você faz ajustes:
+
+```bash
+# Usando docker-compose (recomendado)
+docker-compose --profile dev up
+
+# Ou usando Docker diretamente
+docker build -f Dockerfile.dev -t creative-builder-dev .
+docker run -p 5173:5173 -v $(pwd):/app -v /app/node_modules creative-builder-dev
+```
+
+A aplicação estará disponível em `http://localhost:5173` com hot-reload ativo.
+
+### Produção
+
+Para executar a versão de produção otimizada:
+
+```bash
+# Usando docker-compose
+docker-compose --profile prod up
+
+# Ou usando Docker diretamente
+docker build -t creative-builder .
+docker run -p 80:80 creative-builder
+```
+
+A aplicação estará disponível em `http://localhost`.
+
+### Comandos Úteis
+
+```bash
+# Parar os containers
+docker-compose down
+
+# Rebuild das imagens
+docker-compose build
+
+# Ver logs
+docker-compose logs -f
+
+# Executar em background
+docker-compose up -d
+```
+
 ## 📦 Stack Tecnológica
 
 ### Frontend
